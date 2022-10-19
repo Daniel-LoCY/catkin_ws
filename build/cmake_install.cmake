@@ -134,6 +134,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/daniel/catkin_ws/build/basic_pkg/cmake_install.cmake")
   include("/home/daniel/catkin_ws/build/service_tutorials_pkg/cmake_install.cmake")
   include("/home/daniel/catkin_ws/build/tf_pkg/cmake_install.cmake")
+  include("/home/daniel/catkin_ws/build/image_msg_pkg/cmake_install.cmake")
+  include("/home/daniel/catkin_ws/build/image_pkg/cmake_install.cmake")
   include("/home/daniel/catkin_ws/build/tutorials_pkg/cmake_install.cmake")
 
 endif()
