@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/daniel/catkin_ws/devel/share/gennodejs/ros/image_msg_pkg/msg/image.js"
+  "/home/daniel/catkin_ws/devel/share/gennodejs/ros/image_msg_pkg/srv/event.js"
   "CMakeFiles/image_msg_pkg_generate_messages_nodejs"
 )
 

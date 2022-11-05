@@ -54,7 +54,9 @@ CMAKE_BINARY_DIR = /home/daniel/catkin_ws/build
 include image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_py.dir/progress.make
 
 image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/_image.py
+image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/_event.py
 image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/__init__.py
+image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/__init__.py
 
 
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/_image.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
@@ -64,14 +66,28 @@ image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_py: /home/daniel/catkin
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG image_msg_pkg/image"
 	cd /home/daniel/catkin_ws/build/image_msg_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/daniel/catkin_ws/src/image_msg_pkg/msg/image.msg -Iimage_msg_pkg:/home/daniel/catkin_ws/src/image_msg_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p image_msg_pkg -o /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg
 
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/_event.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/_event.py: /home/daniel/catkin_ws/src/image_msg_pkg/srv/event.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV image_msg_pkg/event"
+	cd /home/daniel/catkin_ws/build/image_msg_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/daniel/catkin_ws/src/image_msg_pkg/srv/event.srv -Iimage_msg_pkg:/home/daniel/catkin_ws/src/image_msg_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p image_msg_pkg -o /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv
+
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/_image.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for image_msg_pkg"
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/_event.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for image_msg_pkg"
 	cd /home/daniel/catkin_ws/build/image_msg_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg --initpy
+
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/_image.py
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/_event.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python srv __init__.py for image_msg_pkg"
+	cd /home/daniel/catkin_ws/build/image_msg_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv --initpy
 
 image_msg_pkg_generate_messages_py: image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_py
 image_msg_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/_image.py
+image_msg_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/_event.py
 image_msg_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/__init__.py
+image_msg_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/__init__.py
 image_msg_pkg_generate_messages_py: image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_py.dir/build.make
 
 .PHONY : image_msg_pkg_generate_messages_py

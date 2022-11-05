@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "/home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/__init__.py"
   "/home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/_image.py"
+  "/home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/__init__.py"
+  "/home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/srv/_event.py"
   "CMakeFiles/image_msg_pkg_generate_messages_py"
 )
 

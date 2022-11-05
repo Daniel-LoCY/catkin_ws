@@ -42,6 +42,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/image_msg_pkg/srv" TYPE FILE FILES "/home/daniel/catkin_ws/src/image_msg_pkg/srv/event.srv")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/image_msg_pkg/cmake" TYPE FILE FILES "/home/daniel/catkin_ws/build/image_msg_pkg/catkin_generated/installspace/image_msg_pkg-msg-paths.cmake")
 endif()
 

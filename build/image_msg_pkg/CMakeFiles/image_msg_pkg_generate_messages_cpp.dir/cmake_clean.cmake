@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "/home/daniel/catkin_ws/devel/include/image_msg_pkg/event.h"
   "/home/daniel/catkin_ws/devel/include/image_msg_pkg/image.h"
   "CMakeFiles/image_msg_pkg_generate_messages_cpp"
 )

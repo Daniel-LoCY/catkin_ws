@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "/home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/manifest.l"
   "/home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/msg/image.l"
+  "/home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/srv/event.l"
   "CMakeFiles/image_msg_pkg_generate_messages_eus"
 )
 

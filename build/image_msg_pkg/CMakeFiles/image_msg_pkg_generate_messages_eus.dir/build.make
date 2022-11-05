@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/daniel/catkin_ws/build
 include image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_eus.dir/progress.make
 
 image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/msg/image.l
+image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/srv/event.l
 image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/manifest.l
 
 
@@ -64,12 +65,18 @@ image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_eus: /home/daniel/catki
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from image_msg_pkg/image.msg"
 	cd /home/daniel/catkin_ws/build/image_msg_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/daniel/catkin_ws/src/image_msg_pkg/msg/image.msg -Iimage_msg_pkg:/home/daniel/catkin_ws/src/image_msg_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p image_msg_pkg -o /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/msg
 
+/home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/srv/event.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/srv/event.l: /home/daniel/catkin_ws/src/image_msg_pkg/srv/event.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from image_msg_pkg/event.srv"
+	cd /home/daniel/catkin_ws/build/image_msg_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/daniel/catkin_ws/src/image_msg_pkg/srv/event.srv -Iimage_msg_pkg:/home/daniel/catkin_ws/src/image_msg_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p image_msg_pkg -o /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/srv
+
 /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for image_msg_pkg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for image_msg_pkg"
 	cd /home/daniel/catkin_ws/build/image_msg_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg image_msg_pkg sensor_msgs std_msgs
 
 image_msg_pkg_generate_messages_eus: image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_eus
 image_msg_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/msg/image.l
+image_msg_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/srv/event.l
 image_msg_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/manifest.l
 image_msg_pkg_generate_messages_eus: image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_eus.dir/build.make
 
