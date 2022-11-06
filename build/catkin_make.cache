@@ -1,2 +1,2 @@
-basic_pkg:image_msg_pkg:image_pkg:service_tutorials_pkg:tf_pkg:tutorials_pkg
+basic_pkg:color_shape_pair_pkg:image_msg_pkg:image_pkg:service_tutorials_pkg:tf_pkg:tutorials_pkg
 -DCATKIN_DEVEL_PREFIX=/home/daniel/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/daniel/catkin_ws/install -G Unix Makefiles

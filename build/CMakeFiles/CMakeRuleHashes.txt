@@ -1,5 +1,7 @@
 # Hashes of file build rules.
 216b6cc49defd815b96ff1585dcee847 /home/daniel/catkin_ws/devel/include/basic_pkg/AddTwoInts.h
+a2eb1ee6b6d12a99342292918fc9449e /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/event.h
+922093f8620e61dd00cb157d938d2675 /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/image.h
 fbe00bc2b21e2221c2509d54f6d32075 /home/daniel/catkin_ws/devel/include/image_msg_pkg/event.h
 2aacd9e3ddfd755e3daf46df527e7664 /home/daniel/catkin_ws/devel/include/image_msg_pkg/image.h
 69d460209a8ab6d099f547b41c3d71fa /home/daniel/catkin_ws/devel/include/image_pkg/AddTwoInts.h
@@ -8,6 +10,10 @@ fbe00bc2b21e2221c2509d54f6d32075 /home/daniel/catkin_ws/devel/include/image_msg_
 5008fcd1cb4ffc38d0d25f0cab2916ae /home/daniel/catkin_ws/devel/include/service_tutorials_pkg/AddTwoInts.h
 8bc25771cccf2b33dbedf8a80edd58b6 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/basic_pkg/srv/_AddTwoInts.py
 751db9f482a07600f418860fd24fea44 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/basic_pkg/srv/__init__.py
+08004eee450f4c08b0bc1ea7019face2 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/__init__.py
+c06f61548c0828db70e656edece900b1 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_image.py
+89726887fa4083a13fddf8b1d0ee2bfc /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/__init__.py
+a11d1d4fcaf44ab7e9903e5d5cef29ec /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_event.py
 d68fbd02f809d4f8d61e385bcfad2d13 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/__init__.py
 dbf6e6f2afbdfe992ee172e0aaa6e63f /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/_event.py
 08b8b16a23529c201a5ec7201e47c0fa /home/daniel/catkin_ws/devel/lib/python3/dist-packages/image_msg_pkg/msg/_image.py
@@ -20,6 +26,8 @@ ba73dfa7e60d86e272b9c7abe976a96c /home/daniel/catkin_ws/devel/lib/python3/dist-p
 2c2edf708d727817a59721756181ee0c /home/daniel/catkin_ws/devel/lib/python3/dist-packages/service_tutorials_pkg/srv/_AddTwoInts.py
 abe079bd836b5bf3370779d12df2df46 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/service_tutorials_pkg/srv/__init__.py
 82738f52a51e5b5ab093c947032ecd3c /home/daniel/catkin_ws/devel/share/common-lisp/ros/basic_pkg/srv/AddTwoInts.lisp
+d1795c7a64ac1b709d1d99ba13ee937b /home/daniel/catkin_ws/devel/share/common-lisp/ros/color_shape_pair_pkg/msg/image.lisp
+caf5429b74214f43f5fb6f767d293811 /home/daniel/catkin_ws/devel/share/common-lisp/ros/color_shape_pair_pkg/srv/event.lisp
 e4826443fb7c2fe3d8004df9c542cad0 /home/daniel/catkin_ws/devel/share/common-lisp/ros/image_msg_pkg/msg/event.lisp
 d2974e7ec8944ecf9789567ddb0f8978 /home/daniel/catkin_ws/devel/share/common-lisp/ros/image_msg_pkg/msg/image.lisp
 5777bf66c7545845f31d6e8402b69c13 /home/daniel/catkin_ws/devel/share/common-lisp/ros/image_msg_pkg/srv/event.lisp
@@ -28,6 +36,8 @@ d2974e7ec8944ecf9789567ddb0f8978 /home/daniel/catkin_ws/devel/share/common-lisp/
 4e2300669f53aea50368bfef745a54b9 /home/daniel/catkin_ws/devel/share/common-lisp/ros/image_pkg/srv/transport_image.lisp
 3f6de0fd9cfaf57b2b32636bab7a10fc /home/daniel/catkin_ws/devel/share/common-lisp/ros/service_tutorials_pkg/srv/AddTwoInts.lisp
 df50854983152739b1cbea9b03421de0 /home/daniel/catkin_ws/devel/share/gennodejs/ros/basic_pkg/srv/AddTwoInts.js
+a6823aba1d6665bf4d2df9f8a0f8e56f /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg/image.js
+edb749f90e2c9e0bc8303951891fac83 /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/event.js
 137c0f4bfcec32ac13d6272bcd63c5b3 /home/daniel/catkin_ws/devel/share/gennodejs/ros/image_msg_pkg/msg/event.js
 de467d6372ef0bb51eeb7dfe1bccd5a2 /home/daniel/catkin_ws/devel/share/gennodejs/ros/image_msg_pkg/msg/image.js
 0ef4c389cc8973046041e8a4766d808a /home/daniel/catkin_ws/devel/share/gennodejs/ros/image_msg_pkg/srv/event.js
@@ -37,6 +47,9 @@ a32410c6bc759c9de923a5863cc46bc7 /home/daniel/catkin_ws/devel/share/gennodejs/ro
 f0f75a00abcf49427a4fd1cc35ceb476 /home/daniel/catkin_ws/devel/share/gennodejs/ros/service_tutorials_pkg/srv/AddTwoInts.js
 0db2eb2d95eccd6c7cfc43207ce7054e /home/daniel/catkin_ws/devel/share/roseus/ros/basic_pkg/manifest.l
 bf30edabdb501a8bb603ba5bbd9aac25 /home/daniel/catkin_ws/devel/share/roseus/ros/basic_pkg/srv/AddTwoInts.l
+919a64d9af90603777fe5cfb985c9ce4 /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/manifest.l
+7846b7e0d52c0eaab3287a17e17b8443 /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg/image.l
+9c35dad09d1b897c691fe4654e694a99 /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/event.l
 14712e9ba75bf064558c1e4de4894801 /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/manifest.l
 71ff5e875c0b0fc7ae20de50a466d4ce /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/msg/event.l
 1e3df7c0c8ee53252012c2f47ca9296d /home/daniel/catkin_ws/devel/share/roseus/ros/image_msg_pkg/msg/image.l
@@ -48,6 +61,13 @@ c065e9d2c5cf804a74b88b703648170a /home/daniel/catkin_ws/devel/share/roseus/ros/i
 c032440eaaf5100625bbe3d2e94542f9 /home/daniel/catkin_ws/devel/share/roseus/ros/service_tutorials_pkg/manifest.l
 0702b83be540a23836cd8a1e923c4e62 /home/daniel/catkin_ws/devel/share/roseus/ros/service_tutorials_pkg/srv/AddTwoInts.l
 58602ae4083f512e0a5ed6487b872fb6 CMakeFiles/clean_test_results
+06c33df3ff7b37502f06c3bd73a8a96a color_shape_pair_pkg/CMakeFiles/_color_shape_pair_pkg_generate_messages_check_deps_event
+df9e86e688f8f2ce370a743d3a931688 color_shape_pair_pkg/CMakeFiles/_color_shape_pair_pkg_generate_messages_check_deps_image
+945145dc56151366a553b4da24c750dd color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_cpp
+945145dc56151366a553b4da24c750dd color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_eus
+945145dc56151366a553b4da24c750dd color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_lisp
+945145dc56151366a553b4da24c750dd color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_nodejs
+945145dc56151366a553b4da24c750dd color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_py
 d8dcbcb1947240c18a4e8baed21484c5 image_msg_pkg/CMakeFiles/_image_msg_pkg_generate_messages_check_deps_event
 31b035443a6e5ae51358d24d9f31913a image_msg_pkg/CMakeFiles/_image_msg_pkg_generate_messages_check_deps_image
 25ee3643b890fdfb96644925c378c2a5 image_msg_pkg/CMakeFiles/image_msg_pkg_generate_messages_cpp

@@ -1,0 +1,8 @@
+prefix=/home/daniel/catkin_ws/devel
+
+Name: color_shape_pair_pkg
+Description: Description of color_shape_pair_pkg
+Version: 0.0.0
+Cflags: -I/home/daniel/catkin_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: 
