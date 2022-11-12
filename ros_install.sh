@@ -1,4 +1,4 @@
-apt update sudo -y
+apt install sudo -y
 sudo apt update -y
 sudo apt install curl -y
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
