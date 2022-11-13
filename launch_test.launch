@@ -1,0 +1,8 @@
+<launch>
+
+<node name='display_node' pkg='color_shape_pair_pkg' type='display.py' output='screen' />
+<node name='find_shape_node' pkg='color_shape_pair_pkg' type='find_shape.py' output='screen' />
+<node name='find_color_node' pkg='color_shape_pair_pkg' type='find_color.py' output='screen' />
+<node name='user_interface_node' pkg='color_shape_pair_pkg' type='user_interface_tkinter.py' output='screen' />
+
+</launch>

@@ -38,11 +38,18 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/color_shape_pair_pkg/msg" TYPE FILE FILES "/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/image.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/color_shape_pair_pkg/msg" TYPE FILE FILES
+    "/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/image.msg"
+    "/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/shape.msg"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/color_shape_pair_pkg/srv" TYPE FILE FILES "/home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/event.srv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/color_shape_pair_pkg/srv" TYPE FILE FILES
+    "/home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/event.srv"
+    "/home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/shape_event.srv"
+    "/home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/color_event.srv"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

@@ -24,6 +24,7 @@ class eventRequest {
       this.b = null;
       this.g = null;
       this.r = null;
+      this.shape = null;
     }
     else {
       if (initObj.hasOwnProperty('b')) {
@@ -44,6 +45,12 @@ class eventRequest {
       else {
         this.r = 0;
       }
+      if (initObj.hasOwnProperty('shape')) {
+        this.shape = initObj.shape
+      }
+      else {
+        this.shape = 0;
+      }
     }
   }
 
@@ -55,6 +62,8 @@ class eventRequest {
     bufferOffset = _serializer.int64(obj.g, buffer, bufferOffset);
     // Serialize message field [r]
     bufferOffset = _serializer.int64(obj.r, buffer, bufferOffset);
+    // Serialize message field [shape]
+    bufferOffset = _serializer.int64(obj.shape, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -68,11 +77,13 @@ class eventRequest {
     data.g = _deserializer.int64(buffer, bufferOffset);
     // Deserialize message field [r]
     data.r = _deserializer.int64(buffer, bufferOffset);
+    // Deserialize message field [shape]
+    data.shape = _deserializer.int64(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 24;
+    return 32;
   }
 
   static datatype() {
@@ -82,7 +93,7 @@ class eventRequest {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '5e0c98540ef5f673d040299b328cc119';
+    return '5c790a1e3de39f277ec70a3ca47c36ae';
   }
 
   static messageDefinition() {
@@ -91,6 +102,7 @@ class eventRequest {
     int64 b
     int64 g
     int64 r
+    int64 shape
     
     `;
   }
@@ -120,6 +132,13 @@ class eventRequest {
     }
     else {
       resolved.r = 0
+    }
+
+    if (msg.shape !== undefined) {
+      resolved.shape = msg.shape;
+    }
+    else {
+      resolved.shape = 0
     }
 
     return resolved;
@@ -202,6 +221,6 @@ class eventResponse {
 module.exports = {
   Request: eventRequest,
   Response: eventResponse,
-  md5sum() { return '6e158a8fb52b65fbc6ac817be43be292'; },
+  md5sum() { return '175c913c60754681e08f22a3c88455e5'; },
   datatype() { return 'color_shape_pair_pkg/event'; }
 };

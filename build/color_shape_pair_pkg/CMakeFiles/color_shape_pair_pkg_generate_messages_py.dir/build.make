@@ -54,38 +54,65 @@ CMAKE_BINARY_DIR = /home/daniel/catkin_ws/build
 include color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_py.dir/progress.make
 
 color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_image.py
+color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_shape.py
 color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_event.py
+color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_shape_event.py
+color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_color_event.py
 color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/__init__.py
 color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/__init__.py
 
 
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_image.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_image.py: /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/image.msg
-/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_image.py: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_image.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_image.py: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG color_shape_pair_pkg/image"
 	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/image.msg -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg
 
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_shape.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_shape.py: /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/shape.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG color_shape_pair_pkg/shape"
+	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/shape.msg -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg
+
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_event.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_event.py: /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/event.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV color_shape_pair_pkg/event"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python code from SRV color_shape_pair_pkg/event"
 	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/event.srv -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv
+
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_shape_event.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_shape_event.py: /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/shape_event.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python code from SRV color_shape_pair_pkg/shape_event"
+	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/shape_event.srv -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv
+
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_color_event.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_color_event.py: /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/color_event.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python code from SRV color_shape_pair_pkg/color_event"
+	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/color_event.srv -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv
 
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_image.py
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_shape.py
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_event.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for color_shape_pair_pkg"
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_shape_event.py
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_color_event.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python msg __init__.py for color_shape_pair_pkg"
 	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg --initpy
 
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_image.py
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_shape.py
 /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_event.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python srv __init__.py for color_shape_pair_pkg"
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_shape_event.py
+/home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/__init__.py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_color_event.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python srv __init__.py for color_shape_pair_pkg"
 	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv --initpy
 
 color_shape_pair_pkg_generate_messages_py: color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_py
 color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_image.py
+color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/_shape.py
 color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_event.py
+color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_shape_event.py
+color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/_color_event.py
 color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/msg/__init__.py
 color_shape_pair_pkg_generate_messages_py: /home/daniel/catkin_ws/devel/lib/python3/dist-packages/color_shape_pair_pkg/srv/__init__.py
 color_shape_pair_pkg_generate_messages_py: color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_py.dir/build.make

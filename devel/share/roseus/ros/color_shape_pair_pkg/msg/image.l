@@ -16,7 +16,7 @@
 
 (defclass color_shape_pair_pkg::image
   :super ros::object
-  :slots (_a _r _g _b _check ))
+  :slots (_a _r _g _b _shape _shapex _shapey ))
 
 (defmethod color_shape_pair_pkg::image
   (:init
@@ -25,14 +25,18 @@
     ((:r __r) 0)
     ((:g __g) 0)
     ((:b __b) 0)
-    ((:check __check) 0)
+    ((:shape __shape) 0)
+    ((:shapex __shapex) (make-array 0 :initial-element 0 :element-type :integer))
+    ((:shapey __shapey) (make-array 0 :initial-element 0 :element-type :integer))
     )
    (send-super :init)
    (setq _a __a)
    (setq _r (round __r))
    (setq _g (round __g))
    (setq _b (round __b))
-   (setq _check (round __check))
+   (setq _shape (round __shape))
+   (setq _shapex __shapex)
+   (setq _shapey __shapey)
    self)
   (:a
    (&rest __a)
@@ -50,9 +54,15 @@
   (:b
    (&optional __b)
    (if __b (setq _b __b)) _b)
-  (:check
-   (&optional __check)
-   (if __check (setq _check __check)) _check)
+  (:shape
+   (&optional __shape)
+   (if __shape (setq _shape __shape)) _shape)
+  (:shapex
+   (&optional __shapex)
+   (if __shapex (setq _shapex __shapex)) _shapex)
+  (:shapey
+   (&optional __shapey)
+   (if __shapey (setq _shapey __shapey)) _shapey)
   (:serialization-length
    ()
    (+
@@ -64,8 +74,12 @@
     8
     ;; int64 _b
     8
-    ;; int64 _check
+    ;; int64 _shape
     8
+    ;; int64[] _shapex
+    (* 8    (length _shapex)) 4
+    ;; int64[] _shapey
+    (* 8    (length _shapey)) 4
     ))
   (:serialize
    (&optional strm)
@@ -109,18 +123,48 @@
               (write-long (if (>= _b 0) 0 #xffffffff) s))
              (t                                         ;; integer
               (write-long _b s)(write-long (if (>= _b 0) 0 #xffffffff) s)))
-     ;; int64 _check
+     ;; int64 _shape
 #+(or :alpha :irix6 :x86_64)
-       (progn (sys::poke _check (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
+       (progn (sys::poke _shape (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
 #-(or :alpha :irix6 :x86_64)
-       (cond ((and (class _check) (= (length (_check . bv)) 2)) ;; bignum
-              (write-long (ash (elt (_check . bv) 0) 0) s)
-              (write-long (ash (elt (_check . bv) 1) -1) s))
-             ((and (class _check) (= (length (_check . bv)) 1)) ;; big1
-              (write-long (elt (_check . bv) 0) s)
-              (write-long (if (>= _check 0) 0 #xffffffff) s))
+       (cond ((and (class _shape) (= (length (_shape . bv)) 2)) ;; bignum
+              (write-long (ash (elt (_shape . bv) 0) 0) s)
+              (write-long (ash (elt (_shape . bv) 1) -1) s))
+             ((and (class _shape) (= (length (_shape . bv)) 1)) ;; big1
+              (write-long (elt (_shape . bv) 0) s)
+              (write-long (if (>= _shape 0) 0 #xffffffff) s))
              (t                                         ;; integer
-              (write-long _check s)(write-long (if (>= _check 0) 0 #xffffffff) s)))
+              (write-long _shape s)(write-long (if (>= _shape 0) 0 #xffffffff) s)))
+     ;; int64[] _shapex
+     (write-long (length _shapex) s)
+     (dotimes (i (length _shapex))
+#+(or :alpha :irix6 :x86_64)
+       (progn (sys::poke (elt _shapex i) (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
+#-(or :alpha :irix6 :x86_64)
+       (cond ((and (class (elt _shapex i)) (= (length ((elt _shapex i) . bv)) 2)) ;; bignum
+              (write-long (ash (elt ((elt _shapex i) . bv) 0) 0) s)
+              (write-long (ash (elt ((elt _shapex i) . bv) 1) -1) s))
+             ((and (class (elt _shapex i)) (= (length ((elt _shapex i) . bv)) 1)) ;; big1
+              (write-long (elt ((elt _shapex i) . bv) 0) s)
+              (write-long (if (>= (elt _shapex i) 0) 0 #xffffffff) s))
+             (t                                         ;; integer
+              (write-long (elt _shapex i) s)(write-long (if (>= (elt _shapex i) 0) 0 #xffffffff) s)))
+       )
+     ;; int64[] _shapey
+     (write-long (length _shapey) s)
+     (dotimes (i (length _shapey))
+#+(or :alpha :irix6 :x86_64)
+       (progn (sys::poke (elt _shapey i) (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
+#-(or :alpha :irix6 :x86_64)
+       (cond ((and (class (elt _shapey i)) (= (length ((elt _shapey i) . bv)) 2)) ;; bignum
+              (write-long (ash (elt ((elt _shapey i) . bv) 0) 0) s)
+              (write-long (ash (elt ((elt _shapey i) . bv) 1) -1) s))
+             ((and (class (elt _shapey i)) (= (length ((elt _shapey i) . bv)) 1)) ;; big1
+              (write-long (elt ((elt _shapey i) . bv) 0) s)
+              (write-long (if (>= (elt _shapey i) 0) 0 #xffffffff) s))
+             (t                                         ;; integer
+              (write-long (elt _shapey i) s)(write-long (if (>= (elt _shapey i) 0) 0 #xffffffff) s)))
+       )
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -163,11 +207,11 @@
                       b0)
                     ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
                     (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
-   ;; int64 _check
+   ;; int64 _shape
 #+(or :alpha :irix6 :x86_64)
-      (setf _check (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
+      (setf _shape (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
 #-(or :alpha :irix6 :x86_64)
-      (setf _check (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
+      (setf _shape (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
                   (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
               (cond ((= b1 -1) b0)
                      ((and (= b1  0)
@@ -175,19 +219,54 @@
                       b0)
                     ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
                     (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
+   ;; int64[] _shapex
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _shapex (instantiate integer-vector n))
+     (dotimes (i n)
+#+(or :alpha :irix6 :x86_64)
+      (setf (elt _shapex i) (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
+#-(or :alpha :irix6 :x86_64)
+      (setf (elt _shapex i) (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
+                  (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
+              (cond ((= b1 -1) b0)
+                     ((and (= b1  0)
+                           (<= lisp::most-negative-fixnum b0 lisp::most-positive-fixnum))
+                      b0)
+                    ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
+                    (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
+     ))
+   ;; int64[] _shapey
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _shapey (instantiate integer-vector n))
+     (dotimes (i n)
+#+(or :alpha :irix6 :x86_64)
+      (setf (elt _shapey i) (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
+#-(or :alpha :irix6 :x86_64)
+      (setf (elt _shapey i) (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
+                  (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
+              (cond ((= b1 -1) b0)
+                     ((and (= b1  0)
+                           (<= lisp::most-negative-fixnum b0 lisp::most-positive-fixnum))
+                      b0)
+                    ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
+                    (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
+     ))
    ;;
    self)
   )
 
-(setf (get color_shape_pair_pkg::image :md5sum-) "732e020623e9519269e0268e34cd2fa0")
+(setf (get color_shape_pair_pkg::image :md5sum-) "4e0b06efadd73977cc13f598a4130061")
 (setf (get color_shape_pair_pkg::image :datatype-) "color_shape_pair_pkg/image")
 (setf (get color_shape_pair_pkg::image :definition-)
       "sensor_msgs/Image a
 int64 r
 int64 g
 int64 b
-int64 check
-
+int64 shape
+int64[] shapex
+int64[] shapey
 ================================================================================
 MSG: sensor_msgs/Image
 # This message contains an uncompressed image
@@ -238,6 +317,6 @@ string frame_id
 
 
 
-(provide :color_shape_pair_pkg/image "732e020623e9519269e0268e34cd2fa0")
+(provide :color_shape_pair_pkg/image "4e0b06efadd73977cc13f598a4130061")
 
 

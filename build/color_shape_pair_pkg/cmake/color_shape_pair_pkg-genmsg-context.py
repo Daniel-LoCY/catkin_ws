@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/image.msg"
-services_str = "/home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/event.srv"
+messages_str = "/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/image.msg;/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/shape.msg"
+services_str = "/home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/event.srv;/home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/shape_event.srv;/home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/color_event.srv"
 pkg_name = "color_shape_pair_pkg"
 dependencies_str = "sensor_msgs;std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

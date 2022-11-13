@@ -23,7 +23,9 @@ class image {
       this.r = null;
       this.g = null;
       this.b = null;
-      this.check = null;
+      this.shape = null;
+      this.shapex = null;
+      this.shapey = null;
     }
     else {
       if (initObj.hasOwnProperty('a')) {
@@ -50,11 +52,23 @@ class image {
       else {
         this.b = 0;
       }
-      if (initObj.hasOwnProperty('check')) {
-        this.check = initObj.check
+      if (initObj.hasOwnProperty('shape')) {
+        this.shape = initObj.shape
       }
       else {
-        this.check = 0;
+        this.shape = 0;
+      }
+      if (initObj.hasOwnProperty('shapex')) {
+        this.shapex = initObj.shapex
+      }
+      else {
+        this.shapex = [];
+      }
+      if (initObj.hasOwnProperty('shapey')) {
+        this.shapey = initObj.shapey
+      }
+      else {
+        this.shapey = [];
       }
     }
   }
@@ -69,8 +83,12 @@ class image {
     bufferOffset = _serializer.int64(obj.g, buffer, bufferOffset);
     // Serialize message field [b]
     bufferOffset = _serializer.int64(obj.b, buffer, bufferOffset);
-    // Serialize message field [check]
-    bufferOffset = _serializer.int64(obj.check, buffer, bufferOffset);
+    // Serialize message field [shape]
+    bufferOffset = _serializer.int64(obj.shape, buffer, bufferOffset);
+    // Serialize message field [shapex]
+    bufferOffset = _arraySerializer.int64(obj.shapex, buffer, bufferOffset, null);
+    // Serialize message field [shapey]
+    bufferOffset = _arraySerializer.int64(obj.shapey, buffer, bufferOffset, null);
     return bufferOffset;
   }
 
@@ -86,15 +104,21 @@ class image {
     data.g = _deserializer.int64(buffer, bufferOffset);
     // Deserialize message field [b]
     data.b = _deserializer.int64(buffer, bufferOffset);
-    // Deserialize message field [check]
-    data.check = _deserializer.int64(buffer, bufferOffset);
+    // Deserialize message field [shape]
+    data.shape = _deserializer.int64(buffer, bufferOffset);
+    // Deserialize message field [shapex]
+    data.shapex = _arrayDeserializer.int64(buffer, bufferOffset, null)
+    // Deserialize message field [shapey]
+    data.shapey = _arrayDeserializer.int64(buffer, bufferOffset, null)
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
     length += sensor_msgs.msg.Image.getMessageSize(object.a);
-    return length + 32;
+    length += 8 * object.shapex.length;
+    length += 8 * object.shapey.length;
+    return length + 40;
   }
 
   static datatype() {
@@ -104,7 +128,7 @@ class image {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '732e020623e9519269e0268e34cd2fa0';
+    return '4e0b06efadd73977cc13f598a4130061';
   }
 
   static messageDefinition() {
@@ -114,8 +138,9 @@ class image {
     int64 r
     int64 g
     int64 b
-    int64 check
-    
+    int64 shape
+    int64[] shapex
+    int64[] shapey
     ================================================================================
     MSG: sensor_msgs/Image
     # This message contains an uncompressed image
@@ -199,11 +224,25 @@ class image {
       resolved.b = 0
     }
 
-    if (msg.check !== undefined) {
-      resolved.check = msg.check;
+    if (msg.shape !== undefined) {
+      resolved.shape = msg.shape;
     }
     else {
-      resolved.check = 0
+      resolved.shape = 0
+    }
+
+    if (msg.shapex !== undefined) {
+      resolved.shapex = msg.shapex;
+    }
+    else {
+      resolved.shapex = []
+    }
+
+    if (msg.shapey !== undefined) {
+      resolved.shapey = msg.shapey;
+    }
+    else {
+      resolved.shapey = []
     }
 
     return resolved;

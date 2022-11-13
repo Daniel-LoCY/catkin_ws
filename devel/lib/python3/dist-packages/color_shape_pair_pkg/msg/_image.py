@@ -10,15 +10,16 @@ import sensor_msgs.msg
 import std_msgs.msg
 
 class image(genpy.Message):
-  _md5sum = "732e020623e9519269e0268e34cd2fa0"
+  _md5sum = "4e0b06efadd73977cc13f598a4130061"
   _type = "color_shape_pair_pkg/image"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """sensor_msgs/Image a
 int64 r
 int64 g
 int64 b
-int64 check
-
+int64 shape
+int64[] shapex
+int64[] shapey
 ================================================================================
 MSG: sensor_msgs/Image
 # This message contains an uncompressed image
@@ -65,8 +66,8 @@ time stamp
 #Frame this data is associated with
 string frame_id
 """
-  __slots__ = ['a','r','g','b','check']
-  _slot_types = ['sensor_msgs/Image','int64','int64','int64','int64']
+  __slots__ = ['a','r','g','b','shape','shapex','shapey']
+  _slot_types = ['sensor_msgs/Image','int64','int64','int64','int64','int64[]','int64[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -76,7 +77,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       a,r,g,b,check
+       a,r,g,b,shape,shapex,shapey
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -93,14 +94,20 @@ string frame_id
         self.g = 0
       if self.b is None:
         self.b = 0
-      if self.check is None:
-        self.check = 0
+      if self.shape is None:
+        self.shape = 0
+      if self.shapex is None:
+        self.shapex = []
+      if self.shapey is None:
+        self.shapey = []
     else:
       self.a = sensor_msgs.msg.Image()
       self.r = 0
       self.g = 0
       self.b = 0
-      self.check = 0
+      self.shape = 0
+      self.shapex = []
+      self.shapey = []
 
   def _get_types(self):
     """
@@ -140,7 +147,15 @@ string frame_id
       else:
         buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_4q().pack(_x.r, _x.g, _x.b, _x.check))
+      buff.write(_get_struct_4q().pack(_x.r, _x.g, _x.b, _x.shape))
+      length = len(self.shapex)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sq'%length
+      buff.write(struct.Struct(pattern).pack(*self.shapex))
+      length = len(self.shapey)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sq'%length
+      buff.write(struct.Struct(pattern).pack(*self.shapey))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -194,7 +209,23 @@ string frame_id
       _x = self
       start = end
       end += 32
-      (_x.r, _x.g, _x.b, _x.check,) = _get_struct_4q().unpack(str[start:end])
+      (_x.r, _x.g, _x.b, _x.shape,) = _get_struct_4q().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sq'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.shapex = s.unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sq'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.shapey = s.unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -233,7 +264,15 @@ string frame_id
       else:
         buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_4q().pack(_x.r, _x.g, _x.b, _x.check))
+      buff.write(_get_struct_4q().pack(_x.r, _x.g, _x.b, _x.shape))
+      length = len(self.shapex)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sq'%length
+      buff.write(self.shapex.tostring())
+      length = len(self.shapey)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sq'%length
+      buff.write(self.shapey.tostring())
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -288,7 +327,23 @@ string frame_id
       _x = self
       start = end
       end += 32
-      (_x.r, _x.g, _x.b, _x.check,) = _get_struct_4q().unpack(str[start:end])
+      (_x.r, _x.g, _x.b, _x.shape,) = _get_struct_4q().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sq'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.shapex = numpy.frombuffer(str[start:end], dtype=numpy.int64, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sq'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.shapey = numpy.frombuffer(str[start:end], dtype=numpy.int64, count=length)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill

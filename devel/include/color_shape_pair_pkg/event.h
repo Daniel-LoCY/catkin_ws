@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::color_shape_pair_pkg::event > {
   static const char* value()
   {
-    return "6e158a8fb52b65fbc6ac817be43be292";
+    return "175c913c60754681e08f22a3c88455e5";
   }
 
   static const char* value(const ::color_shape_pair_pkg::event&) { return value(); }

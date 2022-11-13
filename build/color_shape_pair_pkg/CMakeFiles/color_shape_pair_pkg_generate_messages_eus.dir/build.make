@@ -54,29 +54,50 @@ CMAKE_BINARY_DIR = /home/daniel/catkin_ws/build
 include color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_eus.dir/progress.make
 
 color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg/image.l
+color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg/shape.l
 color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/event.l
+color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/shape_event.l
+color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/color_event.l
 color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/manifest.l
 
 
 /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg/image.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg/image.l: /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/image.msg
-/home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg/image.l: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
 /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg/image.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg/image.l: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from color_shape_pair_pkg/image.msg"
 	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/image.msg -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg
 
+/home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg/shape.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg/shape.l: /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/shape.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from color_shape_pair_pkg/shape.msg"
+	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/shape.msg -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg
+
 /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/event.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/event.l: /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/event.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from color_shape_pair_pkg/event.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from color_shape_pair_pkg/event.srv"
 	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/event.srv -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv
 
+/home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/shape_event.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/shape_event.l: /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/shape_event.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from color_shape_pair_pkg/shape_event.srv"
+	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/shape_event.srv -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv
+
+/home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/color_event.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/color_event.l: /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/color_event.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from color_shape_pair_pkg/color_event.srv"
+	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/color_event.srv -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv
+
 /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for color_shape_pair_pkg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp manifest code for color_shape_pair_pkg"
 	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg color_shape_pair_pkg sensor_msgs std_msgs
 
 color_shape_pair_pkg_generate_messages_eus: color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_eus
 color_shape_pair_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg/image.l
+color_shape_pair_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/msg/shape.l
 color_shape_pair_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/event.l
+color_shape_pair_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/shape_event.l
+color_shape_pair_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/srv/color_event.l
 color_shape_pair_pkg_generate_messages_eus: /home/daniel/catkin_ws/devel/share/roseus/ros/color_shape_pair_pkg/manifest.l
 color_shape_pair_pkg_generate_messages_eus: color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_eus.dir/build.make
 

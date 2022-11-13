@@ -54,14 +54,15 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   image.msg
-#   Message2.msg
+  shape.msg
 )
 
 ## Generate services in the 'srv' folder
 add_service_files(
   FILES
   event.srv
-#   Service2.srv
+  shape_event.srv
+  color_event.srv
 )
 
 ## Generate actions in the 'action' folder

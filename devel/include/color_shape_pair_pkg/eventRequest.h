@@ -26,12 +26,14 @@ struct eventRequest_
   eventRequest_()
     : b(0)
     , g(0)
-    , r(0)  {
+    , r(0)
+    , shape(0)  {
     }
   eventRequest_(const ContainerAllocator& _alloc)
     : b(0)
     , g(0)
-    , r(0)  {
+    , r(0)
+    , shape(0)  {
   (void)_alloc;
     }
 
@@ -45,6 +47,9 @@ struct eventRequest_
 
    typedef int64_t _r_type;
   _r_type r;
+
+   typedef int64_t _shape_type;
+  _shape_type shape;
 
 
 
@@ -77,7 +82,8 @@ bool operator==(const ::color_shape_pair_pkg::eventRequest_<ContainerAllocator1>
 {
   return lhs.b == rhs.b &&
     lhs.g == rhs.g &&
-    lhs.r == rhs.r;
+    lhs.r == rhs.r &&
+    lhs.shape == rhs.shape;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -134,12 +140,12 @@ struct MD5Sum< ::color_shape_pair_pkg::eventRequest_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "5e0c98540ef5f673d040299b328cc119";
+    return "5c790a1e3de39f277ec70a3ca47c36ae";
   }
 
   static const char* value(const ::color_shape_pair_pkg::eventRequest_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x5e0c98540ef5f673ULL;
-  static const uint64_t static_value2 = 0xd040299b328cc119ULL;
+  static const uint64_t static_value1 = 0x5c790a1e3de39f27ULL;
+  static const uint64_t static_value2 = 0x7ec70a3ca47c36aeULL;
 };
 
 template<class ContainerAllocator>
@@ -161,6 +167,7 @@ struct Definition< ::color_shape_pair_pkg::eventRequest_<ContainerAllocator> >
     return "int64 b\n"
 "int64 g\n"
 "int64 r\n"
+"int64 shape\n"
 ;
   }
 
@@ -182,6 +189,7 @@ namespace serialization
       stream.next(m.b);
       stream.next(m.g);
       stream.next(m.r);
+      stream.next(m.shape);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -206,6 +214,8 @@ struct Printer< ::color_shape_pair_pkg::eventRequest_<ContainerAllocator> >
     Printer<int64_t>::stream(s, indent + "  ", v.g);
     s << indent << "r: ";
     Printer<int64_t>::stream(s, indent + "  ", v.r);
+    s << indent << "shape: ";
+    Printer<int64_t>::stream(s, indent + "  ", v.shape);
   }
 };
 

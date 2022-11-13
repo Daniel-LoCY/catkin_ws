@@ -7,6 +7,10 @@
           G
           B-VAL
           B
-          CHECK-VAL
-          CHECK
+          SHAPE-VAL
+          SHAPE
+          SHAPEX-VAL
+          SHAPEX
+          SHAPEY-VAL
+          SHAPEY
 ))

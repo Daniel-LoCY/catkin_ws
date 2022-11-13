@@ -24,12 +24,12 @@ add_custom_target(_image_pkg_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/daniel/catkin_ws/src/image_pkg/srv/transport_image.srv" NAME_WE)
 add_custom_target(_image_pkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "image_pkg" "/home/daniel/catkin_ws/src/image_pkg/srv/transport_image.srv" "sensor_msgs/Image:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "image_pkg" "/home/daniel/catkin_ws/src/image_pkg/srv/transport_image.srv" "std_msgs/Header:sensor_msgs/Image"
 )
 
 get_filename_component(_filename "/home/daniel/catkin_ws/src/image_pkg/srv/display_edge.srv" NAME_WE)
 add_custom_target(_image_pkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "image_pkg" "/home/daniel/catkin_ws/src/image_pkg/srv/display_edge.srv" "sensor_msgs/Image:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "image_pkg" "/home/daniel/catkin_ws/src/image_pkg/srv/display_edge.srv" "std_msgs/Header:sensor_msgs/Image"
 )
 
 #
@@ -49,13 +49,13 @@ _generate_srv_cpp(image_pkg
 _generate_srv_cpp(image_pkg
   "/home/daniel/catkin_ws/src/image_pkg/srv/transport_image.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/image_pkg
 )
 _generate_srv_cpp(image_pkg
   "/home/daniel/catkin_ws/src/image_pkg/srv/display_edge.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/image_pkg
 )
 
@@ -98,13 +98,13 @@ _generate_srv_eus(image_pkg
 _generate_srv_eus(image_pkg
   "/home/daniel/catkin_ws/src/image_pkg/srv/transport_image.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/image_pkg
 )
 _generate_srv_eus(image_pkg
   "/home/daniel/catkin_ws/src/image_pkg/srv/display_edge.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/image_pkg
 )
 
@@ -147,13 +147,13 @@ _generate_srv_lisp(image_pkg
 _generate_srv_lisp(image_pkg
   "/home/daniel/catkin_ws/src/image_pkg/srv/transport_image.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/image_pkg
 )
 _generate_srv_lisp(image_pkg
   "/home/daniel/catkin_ws/src/image_pkg/srv/display_edge.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/image_pkg
 )
 
@@ -196,13 +196,13 @@ _generate_srv_nodejs(image_pkg
 _generate_srv_nodejs(image_pkg
   "/home/daniel/catkin_ws/src/image_pkg/srv/transport_image.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/image_pkg
 )
 _generate_srv_nodejs(image_pkg
   "/home/daniel/catkin_ws/src/image_pkg/srv/display_edge.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/image_pkg
 )
 
@@ -245,13 +245,13 @@ _generate_srv_py(image_pkg
 _generate_srv_py(image_pkg
   "/home/daniel/catkin_ws/src/image_pkg/srv/transport_image.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/image_pkg
 )
 _generate_srv_py(image_pkg
   "/home/daniel/catkin_ws/src/image_pkg/srv/display_edge.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/image_pkg
 )
 

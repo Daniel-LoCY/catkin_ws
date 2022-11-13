@@ -3,5 +3,7 @@
   (:export
    "<IMAGE>"
    "IMAGE"
+   "<SHAPE>"
+   "SHAPE"
   ))
 

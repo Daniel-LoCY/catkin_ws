@@ -29,26 +29,30 @@ def on_change(x):
     value.append(x)
 
 def on_click(a, b):
-    b = cv2.getTrackbarPos('B', 'choose')
-    g = cv2.getTrackbarPos('G', 'choose')
-    r = cv2.getTrackbarPos('R', 'choose')
+    b = cv2.getTrackbarPos('B', 'choose_color')
+    g = cv2.getTrackbarPos('G', 'choose_color')
+    r = cv2.getTrackbarPos('R', 'choose_color')
     service = rospy.ServiceProxy('display_service', event)
     resp = service(b=b, r=r, g=g)
     print(resp.s)
 
-cv2.namedWindow('choose')
+cv2.namedWindow('choose_color')
 img = np.zeros((100,100,3), np.uint8)
-cv2.imshow('choose', img)
-cv2.createTrackbar('R', 'choose', 0, 255, on_change)
-cv2.createTrackbar('G', 'choose', 0, 255, on_change)
-cv2.createTrackbar('B', 'choose', 0, 255, on_change)
+cv2.imshow('choose_color', img)
+cv2.createTrackbar('R', 'choose_color', 0, 255, on_change)
+cv2.createTrackbar('G', 'choose_color', 0, 255, on_change)
+cv2.createTrackbar('B', 'choose_color', 0, 255, on_change)
 cv2.createButton('SEND RGB DATA', on_click, 'test', cv2.QT_PUSH_BUTTON, 0)
+cv2.namedWindow('choose_shape')
+img2 = np.zeros((100,100,3), np.uint8)
+cv2.imshow('choose_shape', img2)
+cv2.createTrackbar('angle', 'choose_shape', 3, 5, on_change)
 
 while True:
-    b = cv2.getTrackbarPos('B', 'choose')
-    g = cv2.getTrackbarPos('G', 'choose')
-    r = cv2.getTrackbarPos('R', 'choose')
+    b = cv2.getTrackbarPos('B', 'choose_color')
+    g = cv2.getTrackbarPos('G', 'choose_color')
+    r = cv2.getTrackbarPos('R', 'choose_color')
     img[:] = [b, g, r]
-    cv2.imshow('choose', img)
+    cv2.imshow('choose_color', img)
     if cv2.waitKey(1) == ord('q'):break
 cv2.destroyAllWindows()

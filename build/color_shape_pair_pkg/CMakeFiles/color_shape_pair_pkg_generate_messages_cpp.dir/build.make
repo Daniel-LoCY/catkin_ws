@@ -54,27 +54,53 @@ CMAKE_BINARY_DIR = /home/daniel/catkin_ws/build
 include color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_cpp.dir/progress.make
 
 color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_cpp: /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/image.h
+color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_cpp: /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/shape.h
 color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_cpp: /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/event.h
+color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_cpp: /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/shape_event.h
+color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_cpp: /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/color_event.h
 
 
 /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/image.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/image.h: /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/image.msg
-/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/image.h: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
 /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/image.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/image.h: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
 /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/image.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from color_shape_pair_pkg/image.msg"
 	cd /home/daniel/catkin_ws/src/color_shape_pair_pkg && /home/daniel/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/image.msg -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg -e /opt/ros/noetic/share/gencpp/cmake/..
+
+/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/shape.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/shape.h: /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/shape.msg
+/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/shape.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from color_shape_pair_pkg/shape.msg"
+	cd /home/daniel/catkin_ws/src/color_shape_pair_pkg && /home/daniel/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/shape.msg -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg -e /opt/ros/noetic/share/gencpp/cmake/..
 
 /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/event.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/event.h: /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/event.srv
 /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/event.h: /opt/ros/noetic/share/gencpp/msg.h.template
 /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/event.h: /opt/ros/noetic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from color_shape_pair_pkg/event.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from color_shape_pair_pkg/event.srv"
 	cd /home/daniel/catkin_ws/src/color_shape_pair_pkg && /home/daniel/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/event.srv -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg -e /opt/ros/noetic/share/gencpp/cmake/..
+
+/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/shape_event.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/shape_event.h: /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/shape_event.srv
+/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/shape_event.h: /opt/ros/noetic/share/gencpp/msg.h.template
+/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/shape_event.h: /opt/ros/noetic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from color_shape_pair_pkg/shape_event.srv"
+	cd /home/daniel/catkin_ws/src/color_shape_pair_pkg && /home/daniel/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/shape_event.srv -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg -e /opt/ros/noetic/share/gencpp/cmake/..
+
+/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/color_event.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/color_event.h: /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/color_event.srv
+/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/color_event.h: /opt/ros/noetic/share/gencpp/msg.h.template
+/home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/color_event.h: /opt/ros/noetic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from color_shape_pair_pkg/color_event.srv"
+	cd /home/daniel/catkin_ws/src/color_shape_pair_pkg && /home/daniel/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/color_event.srv -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg -e /opt/ros/noetic/share/gencpp/cmake/..
 
 color_shape_pair_pkg_generate_messages_cpp: color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_cpp
 color_shape_pair_pkg_generate_messages_cpp: /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/image.h
+color_shape_pair_pkg_generate_messages_cpp: /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/shape.h
 color_shape_pair_pkg_generate_messages_cpp: /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/event.h
+color_shape_pair_pkg_generate_messages_cpp: /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/shape_event.h
+color_shape_pair_pkg_generate_messages_cpp: /home/daniel/catkin_ws/devel/include/color_shape_pair_pkg/color_event.h
 color_shape_pair_pkg_generate_messages_cpp: color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_cpp.dir/build.make
 
 .PHONY : color_shape_pair_pkg_generate_messages_cpp

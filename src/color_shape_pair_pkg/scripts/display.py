@@ -2,65 +2,70 @@
 
 import rospy
 from color_shape_pair_pkg.msg import image
-from color_shape_pair_pkg.srv import event
+from color_shape_pair_pkg.srv import event, shape_event, color_event
 import cv2
 from cv_bridge import CvBridge
 import numpy as np
 
-user_input = False
-user_input_color = {}
+
+class show():
+    def __init__(self) -> None:
+        self.mask = None
+        self.shapex = []
+        self.shapey = []
+        self.shape = 0
+        self.bridge = CvBridge()
+
+    def show_image(self, imgmsg):
+        bridge = CvBridge()
+        output = bridge.imgmsg_to_cv2(imgmsg, desired_encoding='passthrough')
+        if type(self.mask) == np.ndarray:
+            output = cv2.bitwise_and(output, output, mask = self.mask) 
+        for i in range(len(self.shapex)):
+            if self.shape == 3:
+                cv2.putText(output, 'triangle', (self.shapex[i]-10, self.shapey[i]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+            elif self.shape == 4:
+                cv2.putText(output, 'rectangle', (self.shapex[i]-10, self.shapey[i]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        cv2.imshow('frame', output)
+        cv2.waitKey(1)
+
+    def change_mask(self, mask):
+        mask = self.bridge.imgmsg_to_cv2(mask, desired_encoding='passthrough')
+        self.mask = mask
+
+    def change_shape(self, x, y, shape):
+        self.shapex = x
+        self.shapey = y
+        self.shape = shape
+
+def color_callback(data):
+    s.change_mask(data.a)
 
 def callback(data):
-    global user_input
-    if data.check == 1:
-        if not user_input:
-            b = data.b
-            g = data.g
-            r = data.r
-            color = [b, g, r]
-        else:
-            b = user_input_color['b']
-            g = user_input_color['g']
-            r = user_input_color['r']
-            color = [b, g, r]
-        # print(b,g,r)
-        bridge = CvBridge()
-        img = bridge.imgmsg_to_cv2(data.a, desired_encoding='passthrough')
-        low = []
-        high = []
-        for i in color:
-            i = i-20 if i-10>=0 else 0
-            low.append(i)
-        for i in color:
-            i = i+20 if i+10<=255 else 255
-            high.append(i)
-        low = np.array(low)
-        high = np.array(high)
-        mask = cv2.inRange(img, low, high)
-        img = cv2.bitwise_and(img, img, mask=mask)
-        cv2.imshow('image', img)
-        cv2.waitKey(1)
-    else:
-        rospy.loginfo('no frame')
-        img = np.zeros((100,100,3), np.uint8)
-        cv2.imshow('image', img)
-        cv2.waitKey(1)
+    s.show_image(data.a)
+
+def shape_callback(data):
+    s.change_shape(data.shapex, data.shapey, data.shape)
 
 def event_callback(data):
-    global user_input
-    user_input = True
-    user_input_color['b'] = data.b
-    user_input_color['g'] = data.g
-    user_input_color['r'] = data.r
-    return 'ok'
+    if data.shape != 0:
+        shape = rospy.ServiceProxy('find_shape_service', shape_event)
+        resp = shape(data.shape)
+        print(resp.s)
+    color = rospy.ServiceProxy('find_color_service', color_event)
+    resp1 = color(data.b, data.g, data.r)
+    print(resp1.s)
+    return 'change ok'
 
 def listener():
+    global s
     rospy.init_node('displayer', anonymous=True)
+    rospy.Subscriber('find_color_node', image, color_callback)
+    rospy.Subscriber('find_shape_node', image, shape_callback)
     rospy.Subscriber('capture_node', image, callback)
     rospy.Service('display_service', event, event_callback)
+    s = show()
     rospy.spin()
-
-
 
 if __name__ == '__main__':
     print('ready to display image')

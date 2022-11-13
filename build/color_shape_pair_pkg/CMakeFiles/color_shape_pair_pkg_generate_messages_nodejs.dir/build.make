@@ -54,24 +54,45 @@ CMAKE_BINARY_DIR = /home/daniel/catkin_ws/build
 include color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_nodejs.dir/progress.make
 
 color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_nodejs: /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg/image.js
+color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_nodejs: /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg/shape.js
 color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_nodejs: /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/event.js
+color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_nodejs: /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/shape_event.js
+color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_nodejs: /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/color_event.js
 
 
 /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg/image.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg/image.js: /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/image.msg
-/home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg/image.js: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
 /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg/image.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg/image.js: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from color_shape_pair_pkg/image.msg"
 	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/image.msg -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg
 
+/home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg/shape.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg/shape.js: /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/shape.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from color_shape_pair_pkg/shape.msg"
+	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/msg/shape.msg -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg
+
 /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/event.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/event.js: /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/event.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from color_shape_pair_pkg/event.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from color_shape_pair_pkg/event.srv"
 	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/event.srv -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv
+
+/home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/shape_event.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/shape_event.js: /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/shape_event.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from color_shape_pair_pkg/shape_event.srv"
+	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/shape_event.srv -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv
+
+/home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/color_event.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/color_event.js: /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/color_event.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/daniel/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from color_shape_pair_pkg/color_event.srv"
+	cd /home/daniel/catkin_ws/build/color_shape_pair_pkg && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/daniel/catkin_ws/src/color_shape_pair_pkg/srv/color_event.srv -Icolor_shape_pair_pkg:/home/daniel/catkin_ws/src/color_shape_pair_pkg/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p color_shape_pair_pkg -o /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv
 
 color_shape_pair_pkg_generate_messages_nodejs: color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_nodejs
 color_shape_pair_pkg_generate_messages_nodejs: /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg/image.js
+color_shape_pair_pkg_generate_messages_nodejs: /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/msg/shape.js
 color_shape_pair_pkg_generate_messages_nodejs: /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/event.js
+color_shape_pair_pkg_generate_messages_nodejs: /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/shape_event.js
+color_shape_pair_pkg_generate_messages_nodejs: /home/daniel/catkin_ws/devel/share/gennodejs/ros/color_shape_pair_pkg/srv/color_event.js
 color_shape_pair_pkg_generate_messages_nodejs: color_shape_pair_pkg/CMakeFiles/color_shape_pair_pkg_generate_messages_nodejs.dir/build.make
 
 .PHONY : color_shape_pair_pkg_generate_messages_nodejs

@@ -5,6 +5,8 @@
           G
           R-VAL
           R
+          SHAPE-VAL
+          SHAPE
           S-VAL
           S
 ))
