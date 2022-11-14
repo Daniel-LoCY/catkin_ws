@@ -23,6 +23,7 @@ class image {
       this.r = null;
       this.g = null;
       this.b = null;
+      this.frame_count = null;
       this.shape = null;
       this.shapex = null;
       this.shapey = null;
@@ -51,6 +52,12 @@ class image {
       }
       else {
         this.b = 0;
+      }
+      if (initObj.hasOwnProperty('frame_count')) {
+        this.frame_count = initObj.frame_count
+      }
+      else {
+        this.frame_count = 0;
       }
       if (initObj.hasOwnProperty('shape')) {
         this.shape = initObj.shape
@@ -83,6 +90,8 @@ class image {
     bufferOffset = _serializer.int64(obj.g, buffer, bufferOffset);
     // Serialize message field [b]
     bufferOffset = _serializer.int64(obj.b, buffer, bufferOffset);
+    // Serialize message field [frame_count]
+    bufferOffset = _serializer.int64(obj.frame_count, buffer, bufferOffset);
     // Serialize message field [shape]
     bufferOffset = _serializer.int64(obj.shape, buffer, bufferOffset);
     // Serialize message field [shapex]
@@ -104,6 +113,8 @@ class image {
     data.g = _deserializer.int64(buffer, bufferOffset);
     // Deserialize message field [b]
     data.b = _deserializer.int64(buffer, bufferOffset);
+    // Deserialize message field [frame_count]
+    data.frame_count = _deserializer.int64(buffer, bufferOffset);
     // Deserialize message field [shape]
     data.shape = _deserializer.int64(buffer, bufferOffset);
     // Deserialize message field [shapex]
@@ -118,7 +129,7 @@ class image {
     length += sensor_msgs.msg.Image.getMessageSize(object.a);
     length += 8 * object.shapex.length;
     length += 8 * object.shapey.length;
-    return length + 40;
+    return length + 48;
   }
 
   static datatype() {
@@ -128,7 +139,7 @@ class image {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '4e0b06efadd73977cc13f598a4130061';
+    return '358a41a1c6ecbc24efeccee718e2089d';
   }
 
   static messageDefinition() {
@@ -138,6 +149,7 @@ class image {
     int64 r
     int64 g
     int64 b
+    int64 frame_count
     int64 shape
     int64[] shapex
     int64[] shapey
@@ -222,6 +234,13 @@ class image {
     }
     else {
       resolved.b = 0
+    }
+
+    if (msg.frame_count !== undefined) {
+      resolved.frame_count = msg.frame_count;
+    }
+    else {
+      resolved.frame_count = 0
     }
 
     if (msg.shape !== undefined) {

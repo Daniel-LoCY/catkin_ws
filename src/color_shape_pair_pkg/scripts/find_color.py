@@ -13,12 +13,18 @@ class color():
         self.b = b
         self.g = g
         self.r = r
-        pass
 
     def detect(self, img_ndarray):
         ori_img = self.bridge.imgmsg_to_cv2(img_ndarray, desired_encoding='passthrough')
-        lower = np.array([self.b-30,self.g-30,self.r-30])
-        upper = np.array([self.b+30,self.g+30,self.r+30])
+        color_range = 60
+        lowb = self.b-color_range if self.b-color_range >= 0 else 0
+        lowg = self.g-color_range if self.g-color_range >= 0 else 0
+        lowr = self.r-color_range if self.r-color_range >= 0 else 0
+        uppb = self.b+color_range if self.b+color_range <= 255 else 255
+        uppg = self.g+color_range if self.g+color_range <= 255 else 255
+        uppr = self.r+color_range if self.r+color_range <= 255 else 255
+        lower = np.array([lowb,lowg,lowr])
+        upper = np.array([uppb,uppg,uppr])
         mask = cv2.inRange(ori_img, lower, upper)
         mask = self.bridge.cv2_to_imgmsg(mask, encoding='passthrough')
         return mask
@@ -27,7 +33,6 @@ class color():
         self.b = b
         self.g = g
         self.r = r
-        pass
 
 c = False
 s = color(0,0,0)
@@ -41,6 +46,7 @@ def callback(data):
     resp = s.detect(data.a)
     msg = image()
     msg.a = resp
+    msg.frame_count = data.frame_count
     pub.publish(msg)
 
 def service_callback(data):
@@ -50,7 +56,7 @@ def service_callback(data):
 def listener():
     rospy.init_node('find_color', anonymous=True)
     rospy.Subscriber('capture_node_color', image, callback)
-    rospy.Service('find_color_service', color_event, service_callback)
+    rospy.Service('find_color_service', color_event, service_callback) # for user_interface
     rospy.spin()
 
 if __name__ == '__main__':

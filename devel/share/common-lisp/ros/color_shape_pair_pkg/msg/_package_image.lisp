@@ -7,6 +7,8 @@
           G
           B-VAL
           B
+          FRAME_COUNT-VAL
+          FRAME_COUNT
           SHAPE-VAL
           SHAPE
           SHAPEX-VAL

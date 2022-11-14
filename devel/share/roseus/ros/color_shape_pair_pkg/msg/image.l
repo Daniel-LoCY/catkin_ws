@@ -16,7 +16,7 @@
 
 (defclass color_shape_pair_pkg::image
   :super ros::object
-  :slots (_a _r _g _b _shape _shapex _shapey ))
+  :slots (_a _r _g _b _frame_count _shape _shapex _shapey ))
 
 (defmethod color_shape_pair_pkg::image
   (:init
@@ -25,6 +25,7 @@
     ((:r __r) 0)
     ((:g __g) 0)
     ((:b __b) 0)
+    ((:frame_count __frame_count) 0)
     ((:shape __shape) 0)
     ((:shapex __shapex) (make-array 0 :initial-element 0 :element-type :integer))
     ((:shapey __shapey) (make-array 0 :initial-element 0 :element-type :integer))
@@ -34,6 +35,7 @@
    (setq _r (round __r))
    (setq _g (round __g))
    (setq _b (round __b))
+   (setq _frame_count (round __frame_count))
    (setq _shape (round __shape))
    (setq _shapex __shapex)
    (setq _shapey __shapey)
@@ -54,6 +56,9 @@
   (:b
    (&optional __b)
    (if __b (setq _b __b)) _b)
+  (:frame_count
+   (&optional __frame_count)
+   (if __frame_count (setq _frame_count __frame_count)) _frame_count)
   (:shape
    (&optional __shape)
    (if __shape (setq _shape __shape)) _shape)
@@ -73,6 +78,8 @@
     ;; int64 _g
     8
     ;; int64 _b
+    8
+    ;; int64 _frame_count
     8
     ;; int64 _shape
     8
@@ -123,6 +130,18 @@
               (write-long (if (>= _b 0) 0 #xffffffff) s))
              (t                                         ;; integer
               (write-long _b s)(write-long (if (>= _b 0) 0 #xffffffff) s)))
+     ;; int64 _frame_count
+#+(or :alpha :irix6 :x86_64)
+       (progn (sys::poke _frame_count (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
+#-(or :alpha :irix6 :x86_64)
+       (cond ((and (class _frame_count) (= (length (_frame_count . bv)) 2)) ;; bignum
+              (write-long (ash (elt (_frame_count . bv) 0) 0) s)
+              (write-long (ash (elt (_frame_count . bv) 1) -1) s))
+             ((and (class _frame_count) (= (length (_frame_count . bv)) 1)) ;; big1
+              (write-long (elt (_frame_count . bv) 0) s)
+              (write-long (if (>= _frame_count 0) 0 #xffffffff) s))
+             (t                                         ;; integer
+              (write-long _frame_count s)(write-long (if (>= _frame_count 0) 0 #xffffffff) s)))
      ;; int64 _shape
 #+(or :alpha :irix6 :x86_64)
        (progn (sys::poke _shape (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
@@ -207,6 +226,18 @@
                       b0)
                     ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
                     (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
+   ;; int64 _frame_count
+#+(or :alpha :irix6 :x86_64)
+      (setf _frame_count (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
+#-(or :alpha :irix6 :x86_64)
+      (setf _frame_count (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
+                  (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
+              (cond ((= b1 -1) b0)
+                     ((and (= b1  0)
+                           (<= lisp::most-negative-fixnum b0 lisp::most-positive-fixnum))
+                      b0)
+                    ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
+                    (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
    ;; int64 _shape
 #+(or :alpha :irix6 :x86_64)
       (setf _shape (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
@@ -257,13 +288,14 @@
    self)
   )
 
-(setf (get color_shape_pair_pkg::image :md5sum-) "4e0b06efadd73977cc13f598a4130061")
+(setf (get color_shape_pair_pkg::image :md5sum-) "358a41a1c6ecbc24efeccee718e2089d")
 (setf (get color_shape_pair_pkg::image :datatype-) "color_shape_pair_pkg/image")
 (setf (get color_shape_pair_pkg::image :definition-)
       "sensor_msgs/Image a
 int64 r
 int64 g
 int64 b
+int64 frame_count
 int64 shape
 int64[] shapex
 int64[] shapey
@@ -317,6 +349,6 @@ string frame_id
 
 
 
-(provide :color_shape_pair_pkg/image "4e0b06efadd73977cc13f598a4130061")
+(provide :color_shape_pair_pkg/image "358a41a1c6ecbc24efeccee718e2089d")
 
 

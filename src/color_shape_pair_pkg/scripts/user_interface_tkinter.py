@@ -51,8 +51,10 @@ radio1 = ttk.Radiobutton(window, text='triangle', variable=radiovalue, value=3)
 radio1.grid(row=6, columnspan=2)
 radio2 = ttk.Radiobutton(window, text='rectangle', variable=radiovalue, value=4)
 radio2.grid(row=7, columnspan=2)
-radio3 = ttk.Radiobutton(window, text='pentagon', variable=radiovalue, value=5)
-radio3.grid(row=8, columnspan=2)
+# radio3 = ttk.Radiobutton(window, text='pentagon', variable=radiovalue, value=5)
+# radio3.grid(row=8, columnspan=2)
+# radio4 = ttk.Radiobutton(window, text='circle', variable=radiovalue, value=0)
+# radio4.grid(row=9, columnspan=2)
 
 # ===send to display node===
 
@@ -66,6 +68,6 @@ def send():
     print(resp.s)
 
 button = tk.Button(window, text = 'Send', command = send)
-button.grid(row=9, columnspan=2)
+button.grid(row=8, columnspan=2)
 
 window.mainloop()

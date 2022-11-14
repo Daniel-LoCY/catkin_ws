@@ -29,6 +29,7 @@ struct image_
     , r(0)
     , g(0)
     , b(0)
+    , frame_count(0)
     , shape(0)
     , shapex()
     , shapey()  {
@@ -38,6 +39,7 @@ struct image_
     , r(0)
     , g(0)
     , b(0)
+    , frame_count(0)
     , shape(0)
     , shapex(_alloc)
     , shapey(_alloc)  {
@@ -57,6 +59,9 @@ struct image_
 
    typedef int64_t _b_type;
   _b_type b;
+
+   typedef int64_t _frame_count_type;
+  _frame_count_type frame_count;
 
    typedef int64_t _shape_type;
   _shape_type shape;
@@ -100,6 +105,7 @@ bool operator==(const ::color_shape_pair_pkg::image_<ContainerAllocator1> & lhs,
     lhs.r == rhs.r &&
     lhs.g == rhs.g &&
     lhs.b == rhs.b &&
+    lhs.frame_count == rhs.frame_count &&
     lhs.shape == rhs.shape &&
     lhs.shapex == rhs.shapex &&
     lhs.shapey == rhs.shapey;
@@ -159,12 +165,12 @@ struct MD5Sum< ::color_shape_pair_pkg::image_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "4e0b06efadd73977cc13f598a4130061";
+    return "358a41a1c6ecbc24efeccee718e2089d";
   }
 
   static const char* value(const ::color_shape_pair_pkg::image_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x4e0b06efadd73977ULL;
-  static const uint64_t static_value2 = 0xcc13f598a4130061ULL;
+  static const uint64_t static_value1 = 0x358a41a1c6ecbc24ULL;
+  static const uint64_t static_value2 = 0xefeccee718e2089dULL;
 };
 
 template<class ContainerAllocator>
@@ -187,6 +193,7 @@ struct Definition< ::color_shape_pair_pkg::image_<ContainerAllocator> >
 "int64 r\n"
 "int64 g\n"
 "int64 b\n"
+"int64 frame_count\n"
 "int64 shape\n"
 "int64[] shapex\n"
 "int64[] shapey\n"
@@ -257,6 +264,7 @@ namespace serialization
       stream.next(m.r);
       stream.next(m.g);
       stream.next(m.b);
+      stream.next(m.frame_count);
       stream.next(m.shape);
       stream.next(m.shapex);
       stream.next(m.shapey);
@@ -287,6 +295,8 @@ struct Printer< ::color_shape_pair_pkg::image_<ContainerAllocator> >
     Printer<int64_t>::stream(s, indent + "  ", v.g);
     s << indent << "b: ";
     Printer<int64_t>::stream(s, indent + "  ", v.b);
+    s << indent << "frame_count: ";
+    Printer<int64_t>::stream(s, indent + "  ", v.frame_count);
     s << indent << "shape: ";
     Printer<int64_t>::stream(s, indent + "  ", v.shape);
     s << indent << "shapex[]" << std::endl;

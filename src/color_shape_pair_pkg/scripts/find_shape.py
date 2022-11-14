@@ -19,8 +19,12 @@ class Shape():
         h, w, ch = ori_img.shape
         result = np.zeros((h, w, ch), dtype=np.uint8)
 
-        img = cv2.cvtColor(ori_img, cv2.COLOR_BGR2GRAY)
-        ret, img = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
+        blurred = cv2.GaussianBlur(ori_img, (5, 5), 0)
+        gray = cv2.cvtColor(blurred, cv2.COLOR_BGR2GRAY)
+        # lab = cv2.cvtColor(gray, cv2.COLOR_BGR2LAB)
+        # img = cv2.cvtColor(ori_img, cv2.COLOR_BGR2GRAY)
+        # img = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+        img = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY)[1]
         contour, _ = cv2.findContours(img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
         rx, ry = [], []
@@ -37,6 +41,13 @@ class Shape():
             if approx_len == self.angle:
                 rx.append(x)
                 ry.append(y)
+            elif self.angle == 0:
+                rx.append(x)
+                ry.append(y)
+            # print(approx)
+        cv2.putText(result, str(self.angle), (10, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        cv2.imshow('contour', result)
+        cv2.waitKey(1)
         return rx, ry, self.angle
 
     def change_shape(self, shape):
@@ -56,6 +67,7 @@ def callback(data):
     msg.shapex = rx
     msg.shapey = ry
     msg.shape = shape
+    msg.frame_count = data.frame_count
     pub.publish(msg)
 
 def service_callback(data):
@@ -65,7 +77,7 @@ def service_callback(data):
 def listener():
     rospy.init_node('find_shape', anonymous=True)
     rospy.Subscriber('capture_node_shape', image, callback)
-    rospy.Service('find_shape_service', shape_event, service_callback)
+    rospy.Service('find_shape_service', shape_event, service_callback) # for user_interface
     rospy.spin()
 
 if __name__ == '__main__':
