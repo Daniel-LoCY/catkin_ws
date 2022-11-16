@@ -16,7 +16,7 @@
 
 (defclass color_shape_pair_pkg::image
   :super ros::object
-  :slots (_a _r _g _b _frame_count _shape _shapex _shapey ))
+  :slots (_a _r _g _b _frame_count _shape _user_shape _shapex _shapey ))
 
 (defmethod color_shape_pair_pkg::image
   (:init
@@ -27,6 +27,7 @@
     ((:b __b) 0)
     ((:frame_count __frame_count) 0)
     ((:shape __shape) 0)
+    ((:user_shape __user_shape) 0)
     ((:shapex __shapex) (make-array 0 :initial-element 0 :element-type :integer))
     ((:shapey __shapey) (make-array 0 :initial-element 0 :element-type :integer))
     )
@@ -37,6 +38,7 @@
    (setq _b (round __b))
    (setq _frame_count (round __frame_count))
    (setq _shape (round __shape))
+   (setq _user_shape (round __user_shape))
    (setq _shapex __shapex)
    (setq _shapey __shapey)
    self)
@@ -62,6 +64,9 @@
   (:shape
    (&optional __shape)
    (if __shape (setq _shape __shape)) _shape)
+  (:user_shape
+   (&optional __user_shape)
+   (if __user_shape (setq _user_shape __user_shape)) _user_shape)
   (:shapex
    (&optional __shapex)
    (if __shapex (setq _shapex __shapex)) _shapex)
@@ -82,6 +87,8 @@
     ;; int64 _frame_count
     8
     ;; int64 _shape
+    8
+    ;; int64 _user_shape
     8
     ;; int64[] _shapex
     (* 8    (length _shapex)) 4
@@ -154,6 +161,18 @@
               (write-long (if (>= _shape 0) 0 #xffffffff) s))
              (t                                         ;; integer
               (write-long _shape s)(write-long (if (>= _shape 0) 0 #xffffffff) s)))
+     ;; int64 _user_shape
+#+(or :alpha :irix6 :x86_64)
+       (progn (sys::poke _user_shape (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
+#-(or :alpha :irix6 :x86_64)
+       (cond ((and (class _user_shape) (= (length (_user_shape . bv)) 2)) ;; bignum
+              (write-long (ash (elt (_user_shape . bv) 0) 0) s)
+              (write-long (ash (elt (_user_shape . bv) 1) -1) s))
+             ((and (class _user_shape) (= (length (_user_shape . bv)) 1)) ;; big1
+              (write-long (elt (_user_shape . bv) 0) s)
+              (write-long (if (>= _user_shape 0) 0 #xffffffff) s))
+             (t                                         ;; integer
+              (write-long _user_shape s)(write-long (if (>= _user_shape 0) 0 #xffffffff) s)))
      ;; int64[] _shapex
      (write-long (length _shapex) s)
      (dotimes (i (length _shapex))
@@ -250,6 +269,18 @@
                       b0)
                     ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
                     (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
+   ;; int64 _user_shape
+#+(or :alpha :irix6 :x86_64)
+      (setf _user_shape (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
+#-(or :alpha :irix6 :x86_64)
+      (setf _user_shape (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
+                  (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
+              (cond ((= b1 -1) b0)
+                     ((and (= b1  0)
+                           (<= lisp::most-negative-fixnum b0 lisp::most-positive-fixnum))
+                      b0)
+                    ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
+                    (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
    ;; int64[] _shapex
    (let (n)
      (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
@@ -288,7 +319,7 @@
    self)
   )
 
-(setf (get color_shape_pair_pkg::image :md5sum-) "358a41a1c6ecbc24efeccee718e2089d")
+(setf (get color_shape_pair_pkg::image :md5sum-) "bc531079c94ae62fa6f0fd46d6364056")
 (setf (get color_shape_pair_pkg::image :datatype-) "color_shape_pair_pkg/image")
 (setf (get color_shape_pair_pkg::image :definition-)
       "sensor_msgs/Image a
@@ -297,6 +328,7 @@ int64 g
 int64 b
 int64 frame_count
 int64 shape
+int64 user_shape
 int64[] shapex
 int64[] shapey
 ================================================================================
@@ -349,6 +381,6 @@ string frame_id
 
 
 
-(provide :color_shape_pair_pkg/image "358a41a1c6ecbc24efeccee718e2089d")
+(provide :color_shape_pair_pkg/image "bc531079c94ae62fa6f0fd46d6364056")
 
 

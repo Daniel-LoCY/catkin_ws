@@ -11,6 +11,8 @@
           FRAME_COUNT
           SHAPE-VAL
           SHAPE
+          USER_SHAPE-VAL
+          USER_SHAPE
           SHAPEX-VAL
           SHAPEX
           SHAPEY-VAL

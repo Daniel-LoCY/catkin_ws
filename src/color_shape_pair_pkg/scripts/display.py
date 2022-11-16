@@ -18,27 +18,24 @@ class show():
         self.frame_dict = {}
         self.count = 1
         self.start = False
-        self.timer = threading.Thread(target=self.setTimer)
-        self.time = 0
 
     def show_image(self):
         while True:
-            # print(self.shape_dict.keys())
             try:
                 bridge = CvBridge()
                 output = bridge.imgmsg_to_cv2(self.frame_dict[str(self.count)], desired_encoding='passthrough')
                 if type(self.mask_dict[str(self.count)]) == np.ndarray:
                     output = cv2.bitwise_and(output, output, mask = self.mask_dict[str(self.count)]) 
-                shapex, shapey, shape = self.shape_dict[str(self.count)]
+                shapex, shapey, shape, user_shape = self.shape_dict[str(self.count)]
                 for i in range(len(shapex)):
-                    if shape == 3:
-                        cv2.putText(output, 'triangle', (shapex[i]-10, shapey[i]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-                    elif shape == 4:
-                        cv2.putText(output, 'rectangle', (shapex[i]-10, shapey[i]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-                    elif shape == 5:
-                        cv2.putText(output, 'penatgon', (shapex[i]-10, shapey[i]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                    if shape == user_shape:
+                        if shape == 3:
+                            cv2.putText(output, 'triangle', (shapex[i]-10, shapey[i]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                        elif shape == 4:
+                            cv2.putText(output, 'rectangle', (shapex[i]-10, shapey[i]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                     else:
-                        cv2.putText(output, 'circle', (shapex[i]-10, shapey[i]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                        if user_shape == 0 and shape > 4:
+                            cv2.putText(output, 'circle', (shapex[i]-10, shapey[i]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                 self.shape_dict.pop(str(self.count))        
                 self.mask_dict.pop(str(self.count))        
                 self.frame_dict.pop(str(self.count))      
@@ -48,14 +45,6 @@ class show():
             except Exception as e:
                 self.count = self.count + 1
                 time.sleep(0.1)
-                # print(e)
-                pass
-
-    def setTimer(self):
-        while self.time < 3:
-            time.sleep(1)
-            self.time = self.time + 1
-        print('no frame')
 
     def change_frame(self, imgmsg, frame_count):
         self.frame_dict[str(frame_count)] = imgmsg
@@ -64,8 +53,8 @@ class show():
         mask = self.bridge.imgmsg_to_cv2(mask, desired_encoding='passthrough')
         self.mask_dict[str(frame_count)] = mask
 
-    def change_shape(self, x, y, shape, frame_count):
-        self.shape_dict[str(frame_count)] = [x, y, shape]
+    def change_shape(self, x, y, shape, frame_count, user_shape):
+        self.shape_dict[str(frame_count)] = [x, y, shape, user_shape]
 
 def color_callback(data):
     s.change_mask(data.a, data.frame_count)
@@ -74,17 +63,14 @@ def callback(data):
     s.change_frame(data.a, data.frame_count)
 
 def shape_callback(data):
-    s.change_shape(data.shapex, data.shapey, data.shape, data.frame_count)
+    s.change_shape(data.shapex, data.shapey, data.shape, data.frame_count, data.user_shape)
     if not s.start:
         s.count = data.frame_count
         t.start()
         s.start = True
-        # s.timer.daemon = True
-        # s.timer.start()
-    s.time = 0
 
 def event_callback(data):
-    if data.shape != 0:
+    if data.shape != None:
         shape = rospy.ServiceProxy('find_shape_service', shape_event)
         resp = shape(data.shape)
         print(resp.s)

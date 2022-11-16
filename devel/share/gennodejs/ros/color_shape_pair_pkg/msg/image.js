@@ -25,6 +25,7 @@ class image {
       this.b = null;
       this.frame_count = null;
       this.shape = null;
+      this.user_shape = null;
       this.shapex = null;
       this.shapey = null;
     }
@@ -65,6 +66,12 @@ class image {
       else {
         this.shape = 0;
       }
+      if (initObj.hasOwnProperty('user_shape')) {
+        this.user_shape = initObj.user_shape
+      }
+      else {
+        this.user_shape = 0;
+      }
       if (initObj.hasOwnProperty('shapex')) {
         this.shapex = initObj.shapex
       }
@@ -94,6 +101,8 @@ class image {
     bufferOffset = _serializer.int64(obj.frame_count, buffer, bufferOffset);
     // Serialize message field [shape]
     bufferOffset = _serializer.int64(obj.shape, buffer, bufferOffset);
+    // Serialize message field [user_shape]
+    bufferOffset = _serializer.int64(obj.user_shape, buffer, bufferOffset);
     // Serialize message field [shapex]
     bufferOffset = _arraySerializer.int64(obj.shapex, buffer, bufferOffset, null);
     // Serialize message field [shapey]
@@ -117,6 +126,8 @@ class image {
     data.frame_count = _deserializer.int64(buffer, bufferOffset);
     // Deserialize message field [shape]
     data.shape = _deserializer.int64(buffer, bufferOffset);
+    // Deserialize message field [user_shape]
+    data.user_shape = _deserializer.int64(buffer, bufferOffset);
     // Deserialize message field [shapex]
     data.shapex = _arrayDeserializer.int64(buffer, bufferOffset, null)
     // Deserialize message field [shapey]
@@ -129,7 +140,7 @@ class image {
     length += sensor_msgs.msg.Image.getMessageSize(object.a);
     length += 8 * object.shapex.length;
     length += 8 * object.shapey.length;
-    return length + 48;
+    return length + 56;
   }
 
   static datatype() {
@@ -139,7 +150,7 @@ class image {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '358a41a1c6ecbc24efeccee718e2089d';
+    return 'bc531079c94ae62fa6f0fd46d6364056';
   }
 
   static messageDefinition() {
@@ -151,6 +162,7 @@ class image {
     int64 b
     int64 frame_count
     int64 shape
+    int64 user_shape
     int64[] shapex
     int64[] shapey
     ================================================================================
@@ -248,6 +260,13 @@ class image {
     }
     else {
       resolved.shape = 0
+    }
+
+    if (msg.user_shape !== undefined) {
+      resolved.user_shape = msg.user_shape;
+    }
+    else {
+      resolved.user_shape = 0
     }
 
     if (msg.shapex !== undefined) {

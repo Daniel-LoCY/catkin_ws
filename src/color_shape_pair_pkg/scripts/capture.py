@@ -16,7 +16,6 @@ def talker(img_path, shape, color, frame_count):
     msg.a = img
     msg.frame_count = frame_count
 
-# if color != None:
     c = color.replace(' ', '').split(',')
     l = []
     try:
@@ -30,7 +29,6 @@ def talker(img_path, shape, color, frame_count):
     msg.r = l[2]
     pub_color.publish(msg)
 
-# if shape != None:
     pub_shape = rospy.Publisher('capture_node_shape', image, queue_size=10)
     msg.shape = int(shape)
     pub_shape.publish(msg)

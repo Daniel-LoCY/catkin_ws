@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 import rospy
 from color_shape_pair_pkg.msg import image
-from color_shape_pair_pkg.srv import event, shape_event
+from color_shape_pair_pkg.srv import shape_event
 from cv_bridge import CvBridge
 
 class Shape():
@@ -19,12 +19,8 @@ class Shape():
         h, w, ch = ori_img.shape
         result = np.zeros((h, w, ch), dtype=np.uint8)
 
-        blurred = cv2.GaussianBlur(ori_img, (5, 5), 0)
-        gray = cv2.cvtColor(blurred, cv2.COLOR_BGR2GRAY)
-        # lab = cv2.cvtColor(gray, cv2.COLOR_BGR2LAB)
-        # img = cv2.cvtColor(ori_img, cv2.COLOR_BGR2GRAY)
-        # img = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
-        img = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY)[1]
+        gray = cv2.cvtColor(ori_img, cv2.COLOR_BGR2GRAY)
+        img = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
         contour, _ = cv2.findContours(img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
         rx, ry = [], []
@@ -44,15 +40,13 @@ class Shape():
             elif self.angle == 0:
                 rx.append(x)
                 ry.append(y)
-            # print(approx)
-        cv2.putText(result, str(self.angle), (10, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        cv2.putText(result, str(approx_len), (10, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
         cv2.imshow('contour', result)
         cv2.waitKey(1)
-        return rx, ry, self.angle
+        return rx, ry, approx_len, self.angle
 
     def change_shape(self, shape):
         self.angle = shape
-        pass
 
 c = False
 s = Shape(3)
@@ -62,17 +56,18 @@ def callback(data):
     if not c:
         s = Shape(data.shape)
         c = True
-    rx, ry, shape = s.detect(data.a)
+    rx, ry, shape, user_shape = s.detect(data.a)
     msg = image()
     msg.shapex = rx
     msg.shapey = ry
     msg.shape = shape
     msg.frame_count = data.frame_count
+    msg.user_shape = user_shape
     pub.publish(msg)
 
 def service_callback(data):
     s.change_shape(data.shape)
-    return 'change shape ok'
+    return f'change shape {data.shape} ok'
 
 def listener():
     rospy.init_node('find_shape', anonymous=True)

@@ -10,7 +10,7 @@ import sensor_msgs.msg
 import std_msgs.msg
 
 class image(genpy.Message):
-  _md5sum = "358a41a1c6ecbc24efeccee718e2089d"
+  _md5sum = "bc531079c94ae62fa6f0fd46d6364056"
   _type = "color_shape_pair_pkg/image"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """sensor_msgs/Image a
@@ -19,6 +19,7 @@ int64 g
 int64 b
 int64 frame_count
 int64 shape
+int64 user_shape
 int64[] shapex
 int64[] shapey
 ================================================================================
@@ -67,8 +68,8 @@ time stamp
 #Frame this data is associated with
 string frame_id
 """
-  __slots__ = ['a','r','g','b','frame_count','shape','shapex','shapey']
-  _slot_types = ['sensor_msgs/Image','int64','int64','int64','int64','int64','int64[]','int64[]']
+  __slots__ = ['a','r','g','b','frame_count','shape','user_shape','shapex','shapey']
+  _slot_types = ['sensor_msgs/Image','int64','int64','int64','int64','int64','int64','int64[]','int64[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -78,7 +79,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       a,r,g,b,frame_count,shape,shapex,shapey
+       a,r,g,b,frame_count,shape,user_shape,shapex,shapey
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -99,6 +100,8 @@ string frame_id
         self.frame_count = 0
       if self.shape is None:
         self.shape = 0
+      if self.user_shape is None:
+        self.user_shape = 0
       if self.shapex is None:
         self.shapex = []
       if self.shapey is None:
@@ -110,6 +113,7 @@ string frame_id
       self.b = 0
       self.frame_count = 0
       self.shape = 0
+      self.user_shape = 0
       self.shapex = []
       self.shapey = []
 
@@ -151,7 +155,7 @@ string frame_id
       else:
         buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_5q().pack(_x.r, _x.g, _x.b, _x.frame_count, _x.shape))
+      buff.write(_get_struct_6q().pack(_x.r, _x.g, _x.b, _x.frame_count, _x.shape, _x.user_shape))
       length = len(self.shapex)
       buff.write(_struct_I.pack(length))
       pattern = '<%sq'%length
@@ -212,8 +216,8 @@ string frame_id
       self.a.data = str[start:end]
       _x = self
       start = end
-      end += 40
-      (_x.r, _x.g, _x.b, _x.frame_count, _x.shape,) = _get_struct_5q().unpack(str[start:end])
+      end += 48
+      (_x.r, _x.g, _x.b, _x.frame_count, _x.shape, _x.user_shape,) = _get_struct_6q().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -268,7 +272,7 @@ string frame_id
       else:
         buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_5q().pack(_x.r, _x.g, _x.b, _x.frame_count, _x.shape))
+      buff.write(_get_struct_6q().pack(_x.r, _x.g, _x.b, _x.frame_count, _x.shape, _x.user_shape))
       length = len(self.shapex)
       buff.write(_struct_I.pack(length))
       pattern = '<%sq'%length
@@ -330,8 +334,8 @@ string frame_id
       self.a.data = str[start:end]
       _x = self
       start = end
-      end += 40
-      (_x.r, _x.g, _x.b, _x.frame_count, _x.shape,) = _get_struct_5q().unpack(str[start:end])
+      end += 48
+      (_x.r, _x.g, _x.b, _x.frame_count, _x.shape, _x.user_shape,) = _get_struct_6q().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -368,12 +372,12 @@ def _get_struct_3I():
     if _struct_3I is None:
         _struct_3I = struct.Struct("<3I")
     return _struct_3I
-_struct_5q = None
-def _get_struct_5q():
-    global _struct_5q
-    if _struct_5q is None:
-        _struct_5q = struct.Struct("<5q")
-    return _struct_5q
+_struct_6q = None
+def _get_struct_6q():
+    global _struct_6q
+    if _struct_6q is None:
+        _struct_6q = struct.Struct("<6q")
+    return _struct_6q
 _struct_BI = None
 def _get_struct_BI():
     global _struct_BI

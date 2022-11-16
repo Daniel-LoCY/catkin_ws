@@ -31,6 +31,7 @@ struct image_
     , b(0)
     , frame_count(0)
     , shape(0)
+    , user_shape(0)
     , shapex()
     , shapey()  {
     }
@@ -41,6 +42,7 @@ struct image_
     , b(0)
     , frame_count(0)
     , shape(0)
+    , user_shape(0)
     , shapex(_alloc)
     , shapey(_alloc)  {
   (void)_alloc;
@@ -65,6 +67,9 @@ struct image_
 
    typedef int64_t _shape_type;
   _shape_type shape;
+
+   typedef int64_t _user_shape_type;
+  _user_shape_type user_shape;
 
    typedef std::vector<int64_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<int64_t>> _shapex_type;
   _shapex_type shapex;
@@ -107,6 +112,7 @@ bool operator==(const ::color_shape_pair_pkg::image_<ContainerAllocator1> & lhs,
     lhs.b == rhs.b &&
     lhs.frame_count == rhs.frame_count &&
     lhs.shape == rhs.shape &&
+    lhs.user_shape == rhs.user_shape &&
     lhs.shapex == rhs.shapex &&
     lhs.shapey == rhs.shapey;
 }
@@ -165,12 +171,12 @@ struct MD5Sum< ::color_shape_pair_pkg::image_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "358a41a1c6ecbc24efeccee718e2089d";
+    return "bc531079c94ae62fa6f0fd46d6364056";
   }
 
   static const char* value(const ::color_shape_pair_pkg::image_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x358a41a1c6ecbc24ULL;
-  static const uint64_t static_value2 = 0xefeccee718e2089dULL;
+  static const uint64_t static_value1 = 0xbc531079c94ae62fULL;
+  static const uint64_t static_value2 = 0xa6f0fd46d6364056ULL;
 };
 
 template<class ContainerAllocator>
@@ -195,6 +201,7 @@ struct Definition< ::color_shape_pair_pkg::image_<ContainerAllocator> >
 "int64 b\n"
 "int64 frame_count\n"
 "int64 shape\n"
+"int64 user_shape\n"
 "int64[] shapex\n"
 "int64[] shapey\n"
 "================================================================================\n"
@@ -266,6 +273,7 @@ namespace serialization
       stream.next(m.b);
       stream.next(m.frame_count);
       stream.next(m.shape);
+      stream.next(m.user_shape);
       stream.next(m.shapex);
       stream.next(m.shapey);
     }
@@ -299,6 +307,8 @@ struct Printer< ::color_shape_pair_pkg::image_<ContainerAllocator> >
     Printer<int64_t>::stream(s, indent + "  ", v.frame_count);
     s << indent << "shape: ";
     Printer<int64_t>::stream(s, indent + "  ", v.shape);
+    s << indent << "user_shape: ";
+    Printer<int64_t>::stream(s, indent + "  ", v.user_shape);
     s << indent << "shapex[]" << std::endl;
     for (size_t i = 0; i < v.shapex.size(); ++i)
     {
