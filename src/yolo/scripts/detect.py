@@ -7,6 +7,8 @@ import time
 import rospy
 from cv_bridge import CvBridge
 from image_msg_pkg.msg import image
+from yolo.msg import yolo_info
+import argparse
 
 
 
@@ -25,8 +27,37 @@ def callback(data):
 
     # inference
     detections = darknet.detect_image(network, class_names, darknet_image, thresh=thre)
-    darknet.print_detections(detections, show_coordinates)
+    # darknet.print_detections(detections, show_coordinates)
     darknet.free_image(darknet_image)
+
+    # print(detections, show_coordinates)
+
+    # print(detections)
+    info_dic = {    
+        'obj': '', 
+        'acc': 0.0, 
+        'xmin': 0, 
+        'xmax': 0, 
+        'ymin': 0, 
+        'ymax': 0
+    }
+    info = []
+    
+    for obj, acc, bxx in detections:
+        x, y, w, h = bxx
+        xmin = int(round(x - (w / 2)))
+        xmax = int(round(x + (w / 2)))
+        ymin = int(round(y - (h / 2)))
+        ymax = int(round(y + (h / 2)))
+        print(obj, acc, xmin, xmax, ymin, ymax)
+        info_dic['obj'] = obj
+        info_dic['acc'] = acc
+        info_dic['xmin'] = xmin
+        info_dic['xmax'] = xmax
+        info_dic['ymin'] = ymin
+        info_dic['ymax'] = ymax
+        info.append(info_dic)
+    print(info)
 
     # draw bounding box
     img = darknet.draw_boxes(detections, frame_resized, class_colors)
@@ -38,26 +69,35 @@ def callback(data):
     # cv2.imwrite('/app/result.jpg', image)
     # cv2.imshow(win_title, image)
     output = bridge.cv2_to_imgmsg(img, encoding='passthrough')
-    msg = image()
-    msg.a = output
+    msg = yolo_info()
+    msg.img = output
+    msg.info = info
     pub.publish(msg)
-    rospy.loginfo('find object')
+    # rospy.loginfo('find object')
 
 
 def listener():
     rospy.init_node('edge', anonymous=True)
     rospy.Subscriber('capture', image, callback)
     global pub
-    pub = rospy.Publisher('edger', image, queue_size=10)
+    pub = rospy.Publisher('edger', yolo_info, queue_size=10)
     # rospy.Service('edge_server', event, event_callback)
     rospy.spin()
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--cfg", default='/app/wider_face/cfg/yolov4-tiny-custom.cfg')
+    parser.add_argument("--weight", default='/app/yolov4-tiny-custom_last.weights')
+    parser.add_argument("--data", default='/app/wider_face/cfg/face.data')
+    args = parser.parse_args()
     # Parameters
     win_title = 'YOLOv4 CUSTOM DETECTOR'
-    cfg_file = 'cfg/yolov4-tiny.cfg'
-    data_file = 'cfg/coco.data'
-    weight_file = '/app/yolov4-tiny.weights'
+    # cfg_file = 'cfg/yolov4-tiny.cfg'
+    # data_file = 'cfg/coco.data'
+    # weight_file = '/app/yolov4-tiny.weights'
+    cfg_file = args.cfg
+    data_file = args.data
+    weight_file = args.weight
     thre = 0.25
     show_coordinates = True
 
